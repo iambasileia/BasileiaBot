@@ -14,7 +14,7 @@ appealMes = ""
 announcechn = 666388961303855115
 
 # Settings for ;clear
-reactemote = 
+reactemote = 1301610457857130586
 
 # Settings that determine behavior
 
