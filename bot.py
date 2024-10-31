@@ -70,7 +70,7 @@ exceptionlist = []
 mention_dict = loadMentions()
 keywordsFile = loadKeywords()
 import psycopg2 as db
-conn = db.connect(host='LOCALHOST', dbname='DBNAME', user='DBUSER', password='DBPASSWORD')
+conn = db.connect(host=(os.environ.get('LOCALHOST'), dbname=(os.environ.get('DBNAME'), user=(os.environ.get('DBUSER'), password=(os.environ.get('DBPASSWORD'))
 db.run("CREATE TABLE IF NOT EXISTS forbidden (words text)")
 db.run("CREATE TABLE IF NOT EXISTS vile (words text)")
 db.run("CREATE TABLE IF NOT EXISTS automute (words text)")
