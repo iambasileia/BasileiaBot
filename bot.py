@@ -69,7 +69,8 @@ watchlist = {}
 exceptionlist = []
 mention_dict = loadMentions()
 keywordsFile = loadKeywords()
-db=postgres.Postgres(hostname=(os.environ.get('LOCALHOST')), dbname=(os.environ.get('DBNAME')), username=(os.environ.get('DBUSER')), password=(os.environ.get('DBPASSWORD')))
+conn = psycopg2.connect(host=(os.environ.get('LOCALHOST')), database=(os.environ.get('DBNAME')), user=(os.environ.get('DBUSER')), password=(os.environ.get('DBPASSWORD')), port=5432)
+db = conn.cursor()
 db.run("CREATE TABLE IF NOT EXISTS forbidden (words text)")
 db.run("CREATE TABLE IF NOT EXISTS vile (words text)")
 db.run("CREATE TABLE IF NOT EXISTS automute (words text)")
