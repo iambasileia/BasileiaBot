@@ -18,7 +18,6 @@ COMMANDCHNNUM = int(os.environ.get('COMMANDCHN'))
 REPORTCHNNUM = int(os.environ.get('REPORTCHN'))
 REMOVECHNNUM = int(os.environ.get('REMOVECHN'))
 LOGCHNNUM = int(os.environ.get('LOGCHN'))
-DATABASE_URL = DataSource(os.environ.get('URL'))
 
 def loadMentions():
     tmpm = {}
