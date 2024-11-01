@@ -8,7 +8,6 @@ import asyncio
 import os
 import re
 import postgres
-import psycopg2
 import time
 import settings
 from discord.utils import get
@@ -70,8 +69,8 @@ watchlist = {}
 exceptionlist = []
 mention_dict = loadMentions()
 keywordsFile = loadKeywords()
-conn = psycopg2.connect(host=(os.environ.get('LOCALHOST')), database=(os.environ.get('DBNAME')), user=(os.environ.get('DBUSER')), password=(os.environ.get('DBPASSWORD')), port=5432)
-db = postgres.Postgres(conn.cursor())
+(host=os.environ.get('LOCALHOST'), database=os.environ.get('DBNAME'), user=os.environ.get('DBUSER'), password=os.environ.get('DBPASSWORD'), port=5432)
+db = postgres.Postgres(url= os.environ.get('LOCALHOST'))
 db.run("CREATE TABLE IF NOT EXISTS forbidden (words text)")
 db.run("CREATE TABLE IF NOT EXISTS vile (words text)")
 db.run("CREATE TABLE IF NOT EXISTS automute (words text)")
