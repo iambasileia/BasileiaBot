@@ -70,8 +70,8 @@ watchlist = {}
 exceptionlist = []
 mention_dict = loadMentions()
 keywordsFile = loadKeywords()
-conn = psycopg2.connect(host = basileiabotdb.cpc0qy0oge7w.us-east-2.rds.amazonaws.com, user = os.environ.get('DBUSER'), password = os.environ.get('DBPASSWORD'), database = os.environ.get('DBNAME'))
-db = postgres.Postgres(url= basileiabotdb.cpc0qy0oge7w.us-east-2.rds.amazonaws.com)
+conn = psycopg2.connect(host = os.environ.get('DATABASE_URL'), user = os.environ.get('DBUSER'), password = os.environ.get('DBPASSWORD'), database = os.environ.get('DBNAME'))
+db = postgres.Postgres(url= os.environ.get('DATABASE_URL'))
 db.run("CREATE TABLE IF NOT EXISTS forbidden (words text)")
 db.run("CREATE TABLE IF NOT EXISTS vile (words text)")
 db.run("CREATE TABLE IF NOT EXISTS automute (words text)")
