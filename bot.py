@@ -19,6 +19,7 @@ COMMANDCHNNUM = int(os.environ.get('COMMANDCHN'))
 REPORTCHNNUM = int(os.environ.get('REPORTCHN'))
 REMOVECHNNUM = int(os.environ.get('REMOVECHN'))
 LOGCHNNUM = int(os.environ.get('LOGCHN'))
+DATABASEURL = os.environ.get('URL')
 
 def loadMentions():
     tmpm = {}
@@ -70,9 +71,8 @@ watchlist = {}
 exceptionlist = []
 mention_dict = loadMentions()
 keywordsFile = loadKeywords()
-write set DATABASE_URL=os.environ.get('URL')
-conn = psycopg2.connect(host = 'DATABASE_URL', user = os.environ.get('DBUSER'), password = os.environ.get('DBPASSWORD'), database = os.environ.get('DBNAME'))
-db = postgres.Postgres(url= 'DATABASE_URL')
+conn = psycopg2.connect(host = DATABASEURL, user = os.environ.get('DBUSER'), password = os.environ.get('DBPASSWORD'), database = os.environ.get('DBNAME'))
+db = postgres.Postgres(url= DATABASEURL)
 db.run("CREATE TABLE IF NOT EXISTS forbidden (words text)")
 db.run("CREATE TABLE IF NOT EXISTS vile (words text)")
 db.run("CREATE TABLE IF NOT EXISTS automute (words text)")
