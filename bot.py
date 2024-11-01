@@ -8,6 +8,7 @@ import asyncio
 import os
 import re
 import postgres
+import psycopg2
 import time
 import settings
 from discord.utils import get
